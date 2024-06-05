@@ -1,7 +1,30 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Theme from "./Theme/page";
+import { Roboto_Mono,Lobster,Lato} from 'next/font/google'
+
+const roboto = Roboto_Mono({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+const lato = Lato({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+const as=Lobster({
+  family: ["Lobster Two", "sans-serif"],
+  weight: ['400'],
+  style: ['normal'],
+  subsets: ['latin'],
+})
+
 
 const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +34,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={lato.className}>
+        <Theme> 
+          {children}
+        </Theme>
+      </body>
     </html>
   );
 }
