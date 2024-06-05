@@ -54,7 +54,7 @@
 // }
 
 import React, { useState } from "react";
-import { RegistrationAction } from "../Action/page";
+// import { RegistrationAction } from "../Action/page";
 import F from "../../../Components/Footer/page";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -89,7 +89,7 @@ const Register = () => {
     } else {
       // Submit registration data to server or perform user registration
       console.log("Registration data:", registerData);
-      await RegistrationAction(registerData);
+      // await RegistrationAction(registerData);
     }
   };
 

@@ -60,7 +60,7 @@
 // pages/login.js
 "use client";
 import Link from "next/link";
-import { loginAction } from "../Action/page";
+// import { loginAction } from "../Action/page";
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -89,7 +89,7 @@ const Login = () => {
 
       let p = "hello";
       // if (
-      loginAction(loginData);
+      // loginAction(loginData);
       //   ) {
       //   console.log("working");
       // }
