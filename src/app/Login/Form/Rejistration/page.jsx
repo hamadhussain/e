@@ -59,12 +59,6 @@ import F from "../../../Components/Footer/page";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-  const showToastMessage = () => {
-    toast.success("Success Notification !", {
-      position: "bottom-right",
-    });
-  };
-
 const Register = () => {
   const [registerData, setRegisterData] = useState({
     username: "",
@@ -79,23 +73,39 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform form validation here
-    if (
-      !registerData.username ||
-      !registerData.email ||
-      !registerData.password
-    ) {
-      setError("Please fill in all fields");
-    } else {
-      // Submit registration data to server or perform user registration
-      console.log("Registration data:", registerData);
-      // await RegistrationAction(registerData);
+    try {
+      const response = await fetch("/Api/LoginStudent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: registerData.email,
+          name: registerData.username,
+          password: registerData.password,
+          action: "register",
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+        // router.push("/Components/Dashboard");
+        toast.success("Registration Success !", {
+          position: "bottom-center",
+        });
+      } else {
+        setError("Invalid email or password");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setError("An error occurred due to fields are empty or invalid action");
     }
   };
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <div className="flex justify-center items-center h-full shadow-2xl">
         <div
           className="bg-gray-
@@ -104,8 +114,9 @@ const Register = () => {
           <h1 className=" uppercase text-3xl font-bold mb-1 tex-black text-center">
             Register Form
           </h1>
-          {error && <p className="text-red-500 mb-4">{error}</p>}
-          <form onSubmit={handleSubmit} className=" py-6">
+          <br />
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          <form onSubmit={handleSubmit} action="register" className=" py-6">
             <div className="mb-8">
               {/* <label className="block text-gray-700">Username:</label> */}
               <input
@@ -140,8 +151,7 @@ const Register = () => {
               />
             </div>
             <button
-            onClick={()=>showToastMessage()}
-            type="submit"
+              type="submit"
               className="w-full bg-blue-500 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-600"
             >
               Register

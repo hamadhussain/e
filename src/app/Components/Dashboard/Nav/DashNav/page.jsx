@@ -4,19 +4,50 @@ import { useState } from "react";
 import { FcReadingEbook } from "react-icons/fc";
 import M from "../../../../Theme/Mode/page";
 import { IoIosArrowForward } from "react-icons/io";
+import { useSearchParams } from "next/navigation";
 
 const Navbar = () => {
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
-    { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
-    {
-      label: "Admin Dashboard",
-      href: "/Components/Dashboard/AdminDashboard",
-    },
-    { label: "Exam Result", href: "/Components/Dashboard/Results" },
-    { label: "Logout", href: "/Login/Form" },
-  ];
+  // const navItems = [
+  //   { label: "Home", href: "/" },
+  //   { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
+  //   { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
+  //   {
+  //     label: "Admin Dashboard",
+  //     href: "/Components/Dashboard/AdminDashboard",
+  //   },
+  //   { label: "Exam Result", href: "/Components/Dashboard/Results" },
+  //   { label: "Logout", href: "/Login/Form" },
+  // ];
+  const search = useSearchParams();
+  let k = search.get("teacher");
+  let navItems;
+  if (k) {
+    navItems = [
+      { label: "Home", href: "/" },
+      // { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
+      // { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
+      {
+        label: "Admin Dashboard",
+        href: "/Components/Dashboard/AdminDashboard",
+      },
+      { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "Logout", href: "/Login/AdminLogin" },
+    ];
+  }
+  else{
+    navItems = [
+      { label: "Home", href: "/" },
+      { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
+      { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
+      // {
+      //   label: "Admin Dashboard",
+      //   href: "/Components/Dashboard/AdminDashboard",
+      // },
+      { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "Logout", href: "/Login/Form" },
+    ];
+  }
+
 
   return (
     <div className="flex flex-col p-4 px-14 gap-10 h-screen bg-blac sticky top-0 border-x-4">

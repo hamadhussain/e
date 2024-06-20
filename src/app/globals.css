@@ -369,3 +369,8 @@ h1{
   z-index: 1;
   position: relative;
 }
+.immg {
+  /* width: 150px; */
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(3px  3px 4px #222);
+}

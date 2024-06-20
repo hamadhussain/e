@@ -7,12 +7,12 @@ const Page = () => {
   return (
     <div className=" ">
       <div className=" b-white flex flex-co items-center justify-center gap-24 relative bottom-10  h-screen">
-        <div className="max-w-2xl p-8 py-20 bg-whit shadow-lg rounded-lg flex">
+        <div className="max-w-2xl p-8 py-20 bg-whit md:shadow-lg rounded-lg flex">
           <Image
             src="/3D.png"
             width={200}
             height={100}
-            className=" md:h-72 h-36"
+            className=" md:h-72 h-36 immg"
           />
           <div className=" flex flex-col justify-center text-center items-center">
             <h1 className="text-2xl font-bold mb-4">Exam Management System</h1>

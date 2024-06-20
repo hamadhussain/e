@@ -45,19 +45,20 @@ import Link from "next/link";
 
 function Home() {
   return (
-    <div id='home' className="h-screen flex justify-center items-center">
+    <div id='home' className="h-fit flex justify-center items-center">
      
-      <div  className="max-w-md  p-4 bg-wite rounded shado-md h-screen flex justify-center items-center flex-col">
+      <div  className="max-w-md  p-4 bg-wite rounded shado-md h- flex justify-center items-center flex-col">
         <h1 className="text-2xl font-bold mb-4 text-center ">
           Choose Your Desire
-        </h1> <br /><br />
-        <div className="flex -mx-36 space-x-12 text-black uppercase ">
+        </h1> <br />
+        <div className="flex flex-col  -mx-36 md:flex-row md:space-x-12 text-black uppercase items-center justify-center ">
           <Link href="/Login/Form">
             <div className=" flex text-center shadow-2xl bg-white relative hover:bottom-1 cursor-pointer w-fit flex-col ">
               <Image src="/student2.png" width={400} height={100} />
               <p className="text-lg p-10">Check your exam update</p>
             </div>
           </Link>
+          <br  className=" md:hidden"/>
           <Link href="/Login/AdminLogin">
             <div className=" flex text-center shadow-2xl bg-white relative hover:bottom-1 ease-in cursor-pointer w-fit flex-col ">
               <Image src="/teacher2.jpg" width={400} height={100} />

@@ -139,18 +139,17 @@
 
 // export default Login;
 
-
-
-
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
- 
+
 const Login = () => {
-  const router = useRouter()
+  const router = useRouter();
+const searchParams=useSearchParams();
+let pathname = usePathname()
 
   const showToastMessage = () => {
     toast.success("Success Notification !", {
@@ -164,7 +163,16 @@ const Login = () => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
+  const createQueryString = useCallback(
+    (name, value) => {
+      const params = new URLSearchParams(searchParams)
+      params.set(name, value)
  
+      return params.toString()
+    },
+    [searchParams]
+  )
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Perform form validation here
@@ -172,35 +180,40 @@ const Login = () => {
       setError("Please fill in all fields");
       toast.error("email or password is empty !", {
         position: "top-center",
-      });   
+      });
     } else {
       // Submit login data to server or perform authentication
       console.log("Login data:", loginData);
-      let emaill = "MissEman123@gmail.com";
-      let pass = "MissEman123";
-  
-      if (loginData.email===emaill&&loginData.password===pass) {
-        router.push("/Components/Dashboard")
+      let emaill = "M3@gmail.com";
+      let pass = "M";
+
+      if (loginData.email === emaill && loginData.password === pass) {
+        pathname="/Components/Dashboard"
+        // router.push();
+        router.push(pathname + '?' + createQueryString('teacher', 'asc'))
+
+
         toast.success("Loging Sucess  !", {
           position: "top-center",
         });
       } else {
-        setError("email or password is incorrect")
+        setError("email or password is incorrect");
         toast.error("email or password is incorrect !", {
           position: "top-center",
-        });   
-      
+        });
       }
     }
   };
 
-return (
+  return (
     <div className="flex justify-center items-center shadow-2xl">
       <div className="bg-gry-100 bg-opacity-50 p-8 rounded-lg shadow-md w-96 ">
         <h1 className="text-3xl uppercase text-blck font-bold mb-4 text-center">
           Login Form
         </h1>
-        {error && <p className="text-red-500 text-center capitalize mb-4">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-center capitalize mb-4">{error}</p>
+        )}
         <form onSubmit={handleSubmit} className=" py-6">
           <div className="mb-8">
             {/* <label className="block text-gray-700">Name:</label> */}
@@ -224,14 +237,13 @@ return (
               className="w-full border border-gray-300 bg-whte rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             />
           </div>
-            <button
+          <button
             type="submit"
-              className="w-full bg-blue-500 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-600"
-            >
-              Login
-            </button>
+            className="w-full bg-blue-500 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-600"
+          >
+            Login
+          </button>
           <ToastContainer />
-
         </form>
       </div>
     </div>

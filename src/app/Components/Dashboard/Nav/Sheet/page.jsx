@@ -16,22 +16,44 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { TfiMenuAlt } from "react-icons/tfi";
+import { useSearchParams } from "next/navigation";
 
 const SHEET_SIDES = ["left"];
-const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
-  { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
-  {
-    label: "Admin Dashboard",
-    href: "/Components/Dashboard/AdminDashboard",
-  },
-  { label: "Exam Result", href: "/Components/Dashboard/Results" },
-  { label: "Logout", href: "/Login/Form" },
-];
+
 export default function SheetSide() {
+  const search = useSearchParams();
+  let k = search.get("teacher");
+  let navItems;
+  if (k) {
+    navItems = [
+      { label: "Home", href: "/" },
+      // { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
+      // { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
+      {
+        label: "Admin Dashboard",
+        href: "/Components/Dashboard/AdminDashboard",
+      },
+      { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "Logout", href: "/Login/AdminLogin" },
+    ];
+  }
+  else{
+    navItems = [
+      { label: "Home", href: "/" },
+      { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
+      { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
+      // {
+      //   label: "Admin Dashboard",
+      //   href: "/Components/Dashboard/AdminDashboard",
+      // },
+      { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "Logout", href: "/Login/Form" },
+    ];
+  }
+  // }
+
   return (
-    <div className=" p-1 ">
+    <div className="  ">
       {SHEET_SIDES.map((side) => (
         <Sheet key={side}>
           <SheetTrigger asChild className="">
@@ -51,18 +73,20 @@ export default function SheetSide() {
                   </h1>
                 </Link>
               </div>
-              <ol className="flex flex-col items-start gap-9 w-full">
-                {navItems.map((item, index) => (
-                  <li key={index} className="flex mr-6">
-                    <Link href={`${item.href}`}>
-                      <p className="relative hover:left-1 flex items-center gap-2">
-                        <IoIosArrowForward />
-                        {item.label}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
+              {navItems && (
+                <ol className="flex flex-col items-start gap-9 w-full">
+                  {navItems.map((item, index) => (
+                    <li key={index} className="flex mr-6">
+                      <Link href={`${item.href}`}>
+                        <p className="relative hover:left-1 flex items-center gap-2">
+                          <IoIosArrowForward />
+                          {item.label}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              )}
             </div>
           </SheetContent>
         </Sheet>
