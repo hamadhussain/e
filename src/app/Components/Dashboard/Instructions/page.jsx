@@ -1,8 +1,7 @@
-// pages/exam-instructions.js
-import Head from "next/head";
 import Link from "next/link";
+import React from "react";
 
-function ExamInstructions() {
+const ExamInstructions = () => {
   return (
     <>
       <div className="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
@@ -30,7 +29,7 @@ function ExamInstructions() {
             you.
           </li>
         </ul>
-    
+
         <p className="text-lg mb-2">
           Please read the following instructions carefully before starting the
           exam:
@@ -48,13 +47,16 @@ function ExamInstructions() {
         <p className="text-lg mb-2">
           By starting the exam, you agree to abide by these instructions and any
           rules set forth by the exam proctor.
-        </p><br />
-        <Link href="/Components/Dashboard/ExamQuiz"><button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
-          I Understand, Start Exam
-        </button></Link>
+        </p>
+        <br />
+        <Link href="/Components/Dashboard/ExamQuiz">
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+            I Understand, Start Exam
+          </button>
+        </Link>
       </div>
     </>
   );
-}
+};
 
 export default ExamInstructions;

@@ -6,9 +6,9 @@ import React from "react";
 // import B from "./Brush/page";
 // import Bar from "./Bar/page";
 // import S from "./Star/page";
-import { CiSearch } from "react-icons/ci";
-import { CiBellOn } from "react-icons/ci";
-import { Button } from "@/components/ui/button";
+// import { CiSearch } from "react-icons/ci";
+// import { CiBellOn } from "react-icons/ci";
+// import { Button } from "@/components/ui/button";
 
 const Page = () => {
   return (
@@ -30,7 +30,7 @@ const Page = () => {
               className="  p-1 border-none bg-late-700 "
             />
             <button type="submit" className=" p-2">
-              <CiSearch />
+              {/* <CiSearch /> */}
             </button>
           </div>
           
