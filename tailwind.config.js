@@ -1,13 +1,16 @@
-import config from './postcss.config.mjs'
+import config from "./postcss.config.mjs";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -76,4 +79,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
