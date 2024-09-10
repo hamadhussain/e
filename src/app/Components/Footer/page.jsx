@@ -41,8 +41,8 @@ const Footer = ({whitee,blackk}) => {
           <div className="w-full md:w-1/4 md:mb-0 mb-2">
             <h3 className="text-2xl font-bold mb-2 ">Contact</h3>
             <ul className="list-unstyled">
-              <li>Email: info@exam-management.com</li>
-              <li>Phone: 123-456-7890</li>
+              <li>Email: hammad31012004@gmail.com</li>
+              <li>Phone: 035464565541</li>
             </ul>
           </div>
           <div className="w-full md:w-1/4 md:mb-0 mb-2">

@@ -374,3 +374,6 @@ h1{
   -webkit-filter: drop-shadow(5px 5px 5px #222);
   filter: drop-shadow(3px  3px 4px #222);
 }
+.r{
+  border-top-radius:23px
+}

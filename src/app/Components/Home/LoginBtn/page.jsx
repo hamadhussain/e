@@ -45,7 +45,7 @@ import Link from "next/link";
 
 function Home() {
   return (
-    <div id='home' className="h-fit flex justify-center items-center">
+    <div id='home' className="md:h-full h-fit flex justify-center items-center">
      
       <div  className="max-w-md  p-4 bg-wite rounded shado-md h- flex justify-center items-center flex-col">
         <h1 className="text-2xl font-bold mb-4 text-center ">

@@ -184,8 +184,8 @@ let pathname = usePathname()
     } else {
       // Submit login data to server or perform authentication
       console.log("Login data:", loginData);
-      let emaill = "M3@gmail.com";
-      let pass = "M";
+      let emaill = "MissEman123@gmail.com";
+      let pass = "MissEman123";
 
       if (loginData.email === emaill && loginData.password === pass) {
         pathname="/Components/Dashboard"

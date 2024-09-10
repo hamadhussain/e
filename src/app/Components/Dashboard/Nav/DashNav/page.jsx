@@ -26,11 +26,13 @@ const Navbar = () => {
       { label: "Home", href: "/" },
       // { label: "Exam Details", href: "/Components/Dashboard/Instructions" },
       // { label: "Quiz", href: "/Components/Dashboard/ExamQuiz" },
-      {
-        label: "Admin Dashboard",
-        href: "/Components/Dashboard/AdminDashboard",
-      },
+      // {
+      //   // label: "Admin Dashboard",
+      //   href: "/Components/Dashboard/AdminDashboard",
+      // },
       { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "About", href: "/Components/Dashboard/About" },
+
       { label: "Logout", href: "/Login/AdminLogin" },
     ];
   }
@@ -43,8 +45,10 @@ const Navbar = () => {
       //   label: "Admin Dashboard",
       //   href: "/Components/Dashboard/AdminDashboard",
       // },
-      { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      // { label: "Exam Result", href: "/Components/Dashboard/Results" },
+      { label: "About", href: "/Components/Dashboard/About" },
       { label: "Logout", href: "/Login/Form" },
+
     ];
   }
 
